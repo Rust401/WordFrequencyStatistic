@@ -1,5 +1,9 @@
 #include "WordMap.h"
 
+bool cmp(const std::pair<std::string,uint32_t> a,const std::pair<std::string,uint32_t> b){
+    return a.second>b.second;
+}
+
 void WordMap::addWord(const std::string dudeToAdd){
     if(_coreMap.count(dudeToAdd)){
         ++_coreMap[dudeToAdd];
@@ -83,15 +87,3 @@ void WordMap::reallySave(){
     delete[] buffer;
 }
 
-int main(){
-    WordMap dude;
-    dude.setSavePath("./WordLibrary/default.wl");
-    dude.addWord("baichi");
-    dude.addWord("shabi");
-    dude.addWord("baichi");
-    dude.addWord("shabi");
-    dude.addWord("hajier");
-    dude.addWord("fheuwi");
-    dude.showFrequency(10);
-    dude.saveFile();
-}

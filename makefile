@@ -1,7 +1,7 @@
 #Uncommit the next line to build the intermidiate file
 #all: test.cpp i s att o ll
 
-TARGET=WordMap.cpp
+TARGET=WordMap.cpp main.cpp parser.cpp
 LEVEL=-O3
 COMPILER= clang++
 

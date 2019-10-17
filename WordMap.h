@@ -1,4 +1,6 @@
-#include<stdlib.h>
+#ifndef WORD_MAP_H
+#define WORD_MAP_H
+
 #include<stdio.h>
 #include<string>
 #include<algorithm>
@@ -11,11 +13,6 @@
 
 #define MAXSIZE 300000
 const std::string defaultPath="./WordLibrary/default.wl";
-
-
-bool cmp(const std::pair<std::string,uint32_t> a,const std::pair<std::string,uint32_t> b){
-    return a.second>b.second;
-}
 
 class WordMap
 {
@@ -37,3 +34,6 @@ private:
     void dictInit();
     void reallySave();
 };
+
+
+#endif//WORD_MAP_H

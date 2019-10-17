@@ -1,6 +1,7 @@
 #ifndef PARSER_H
 #define PARSER_H
 
+#include<stdlib.h>
 #include<iostream>
 #include<stdio.h>
 #include<string>
@@ -11,7 +12,7 @@
 #include<memory.h>
 #include<memory>
 #include<string.h>
-
+#include "WordMap.h"
 
 class Parser
 {
@@ -23,13 +24,11 @@ public:
 public:
     Parser(const std::string& Input="");
     virtual ~Parser();
-    virtual std::string addFile(const std::string& path);
     virtual void beginParse();
     virtual void anotherParse(const std::string& Input);
-    virtual std::vector<std::string>& getWordsVector();
 private:
     virtual void display();
     virtual void coreParse(char* choosenBufferHead);
 };
 
-#endif//PARSER_H
+#endif
