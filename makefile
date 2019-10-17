@@ -4,10 +4,11 @@
 TARGET=WordMap.cpp main.cpp parser.cpp
 LEVEL=-O3
 COMPILER= clang++
+OUTPUTPATH= ./bin/test
 
 all: $(TARGET)
-	$(COMPILER) -std=c++11 -g -o test $(TARGET) $(LEVEL)
-	time ./test
+	$(COMPILER) -std=c++11 -g -o $(OUTPUTPATH) $(TARGET) $(LEVEL)
+	time $(OUTPUTPATH)
 
 i:$(TARGET)
 	 $(COMPILER) -E $(TARGET) -o test.i $(LEVEL)
