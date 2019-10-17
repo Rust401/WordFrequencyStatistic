@@ -25,13 +25,15 @@ public:
     Parser(const std::string& Input="");
     virtual ~Parser();
     virtual std::string addFile(const std::string& path);
+    virtual void addDirect(const std::string& dir);
     virtual void addFilePath(const std::string& path);
     virtual void beginParse();
-    virtual void anotherParse(const std::string& Input);
+    virtual void parseAll();
     virtual std::vector<std::string>& getWordsVector();
 private:
     virtual void display();
     virtual void coreParse(char* choosenBufferHead);
+    virtual void anotherParse(const std::string& Input);
 };
 
 #endif//PARSER_H

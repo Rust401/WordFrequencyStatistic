@@ -28,3 +28,7 @@ o:$(TARGET)
 
 clean:
 	rm -f peda* .gdb* *.i *.ll *.s *.o
+
+refresh:
+	rm -f ./WordLibrary/default.wl
+	touch ./WordLibrary/default.wl

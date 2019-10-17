@@ -1,4 +1,5 @@
 #include "parser.h"
+#include "utils.h"
 
 bool isLetter(char c){
     return (c>='a'&&c<='z')||(c>='A'&&c<='Z');
@@ -14,6 +15,16 @@ bool isNormal(char c){
 
 bool isBlank(char c){
     return c=='\t'||c=='\n'||c=='\r'||c==' ';
+}
+
+bool isTxt(const std::string fileName){
+    uint8_t pos=fileName.find_last_of('.');
+    std::string suffix=fileName.substr(pos);
+    if(suffix.compare(".txt")){
+        return false;
+    }else{
+        return true;
+    }
 }
 
 
@@ -52,13 +63,31 @@ std::string Parser::addFile(const std::string& inputPath){
     return input;
 }
 
+void Parser::addDirect(const std::string& inputPath){
+    auto tmpDirec=getFileNames(inputPath);
+    for(auto dude:tmpDirec){
+        if(isTxt(dude)){
+            _pathsToHandle.push_back(dude);
+            std::cout<<dude<<" added"<<std::endl;
+        }else{
+            continue;
+        }
+    }
+}
+
 void Parser::addFilePath(const std::string& inputPath){
     _pathsToHandle.push_back(inputPath);
 }
 
 void Parser::beginParse(){
     coreParse(_bufferHead);
-    display();
+    //display();
+}
+
+void Parser::parseAll(){
+    for(auto dude:_pathsToHandle){
+        anotherParse(addFile("./InputText/"+dude));
+    }
 }
 
 void Parser::anotherParse(const std::string& Input){
