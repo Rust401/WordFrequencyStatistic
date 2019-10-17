@@ -17,6 +17,7 @@ class Parser
 {
 public:
     std::vector<std::string> _parseredWords;
+    std::vector<std::string> _pathsToHandle;
     char* _currentPosition;
     char* _bufferHead;
     uint32_t _bufferSize;
@@ -24,6 +25,7 @@ public:
     Parser(const std::string& Input="");
     virtual ~Parser();
     virtual std::string addFile(const std::string& path);
+    virtual void addFilePath(const std::string& path);
     virtual void beginParse();
     virtual void anotherParse(const std::string& Input);
     virtual std::vector<std::string>& getWordsVector();

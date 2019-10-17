@@ -48,7 +48,12 @@ std::string Parser::addFile(const std::string& inputPath){
     *(buffer+byteSize)='\0';
     std::string input=buffer;
     delete[] buffer;
+    fclose(fp);
     return input;
+}
+
+void Parser::addFilePath(const std::string& inputPath){
+    _pathsToHandle.push_back(inputPath);
 }
 
 void Parser::beginParse(){

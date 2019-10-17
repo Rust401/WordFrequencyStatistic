@@ -1,13 +1,14 @@
 #Uncommit the next line to build the intermidiate file
 #all: test.cpp i s att o ll
 
-TARGET=WordMap.cpp main.cpp parser.cpp
+TARGET=parser.cpp WordMap.cpp utils.cpp main.cpp
 LEVEL=-O3
-COMPILER= clang++
+COMPILER= clang++ -std=c++11
 OUTPUTPATH= ./bin/test
+BOOST=-lboost_system -lboost_filesystem
 
 all: $(TARGET)
-	$(COMPILER) -std=c++11 -g -o $(OUTPUTPATH) $(TARGET) $(LEVEL)
+	$(COMPILER) -g $(BOOST) -o $(OUTPUTPATH) $(TARGET) $(LEVEL)
 	time $(OUTPUTPATH)
 
 i:$(TARGET)
