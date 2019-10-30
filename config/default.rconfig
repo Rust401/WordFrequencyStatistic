@@ -1,0 +1,5 @@
+dirToOpen:"./InputText";
+typeToSupport:"txt,h,cpp,c";
+dictToOpen:"default.wl";
+dictToSave:"default.wl,newSave.wl";
+itemNumsToDisplay:"40";

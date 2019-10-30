@@ -18,4 +18,6 @@ bool isBlank(char c);
 
 bool ifSuffixMatch(std::string& fileName,std::string& targetSuffix);
 
+void split(const std::string& str, std::vector<std::string>& tokens,const std::string& delimiters=" ");
+
 #endif//UTILS_H

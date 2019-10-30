@@ -1,9 +1,13 @@
 #include "parser.h"
 #include "WordMap.h"
+#include "context.h"
 #include "utils.h"
 
 int main()
 {
+    context Context("./config/default.rconfig");
+    Context.displayConfig();
+
     Parser worker;
     //find the target directory to passer
     worker.addDirect("./InputText");

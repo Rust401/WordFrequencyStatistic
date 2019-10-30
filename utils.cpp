@@ -52,3 +52,13 @@ bool ifSuffixMatch(std::string& fileName,std::string& targetSuffix){
     }
 }
 
+void split(const std::string& str, std::vector<std::string>& tokens,const std::string& delimiters){
+    std::string::size_type lastPos=str.find_first_not_of(delimiters,0);
+    std::string::size_type pos=str.find_first_of(delimiters,lastPos);
+    while(std::string::npos!=lastPos||std::string::npos!=pos){
+        tokens.push_back(str.substr(lastPos,pos-lastPos));
+        lastPos=str.find_first_not_of(delimiters,pos);
+        pos=str.find_first_of(delimiters,lastPos);
+    }
+}
+
