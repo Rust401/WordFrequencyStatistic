@@ -23,7 +23,7 @@ void WordMap::showFrequency(const uint32_t itemNumber){
     std::sort(tmpVector.begin(),tmpVector.end(),cmp);
     int n=(itemNumber>tmpVector.size())?tmpVector.size():itemNumber;
     for(int i=0;i<n;++i){
-        printf("%s\t\t%u\n",tmpVector[i].first.c_str(),tmpVector[i].second);
+        printf("%s\t\t\t%u\n",tmpVector[i].first.c_str(),tmpVector[i].second);
     }
 }
 

@@ -43,7 +43,7 @@ Parser::Parser(const std::string& Input){
 
 Parser::~Parser(){delete[] _bufferHead;}
 
-std::string Parser::addFile(const std::string& inputPath){
+std::string Parser::readFileToString(const std::string& inputPath){
     const char* path=inputPath.c_str();
     FILE* fp=fopen(path,"r");
     if(fp==nullptr){
@@ -86,7 +86,7 @@ void Parser::beginParse(){
 
 void Parser::parseAll(){
     for(auto dude:_pathsToHandle){
-        anotherParse(addFile("./InputText/"+dude));
+        anotherParse(readFileToString("./InputText/"+dude));
     }
 }
 
@@ -102,7 +102,7 @@ void Parser::anotherParse(const std::string& Input){
     *(newbufferHead+_bufferSize-1)='\0';
     _currentPosition=newbufferHead;
     coreParse(newbufferHead);
-    display();
+    //display();
     delete[] newbufferHead;
 }
 
