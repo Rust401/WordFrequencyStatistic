@@ -7,7 +7,6 @@ int main()
     Parser worker;
     //find the target directory to passer
     worker.addDirect("./InputText");
-    worker.addDirect("./InputText");
     worker.parseAll();
     //get the result of current parser
     std::vector<std::string>& wordVector=worker.getWordsVector();
